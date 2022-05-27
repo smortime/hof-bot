@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -9,6 +10,13 @@ import (
 	"github.com/slack-go/slack"
 	"github.com/slack-go/slack/slackevents"
 )
+
+const hofer_str = `
+* @grepcats
+* @chad
+* @Jingkai
+* @Russell
+* @annnn`
 
 func main() {
 	apiKey := os.Getenv("SLACK_XOXB")
@@ -21,7 +29,6 @@ func main() {
 		url = "http://localhost:3000/events-endpoint"
 	}
 
-
 	bot, err := widget.New(apiKey, url)
 	if !widget.OK(err) {
 		return
@@ -33,7 +40,7 @@ func main() {
 		switch ev := iev.Data.(type) {
 		case *slackevents.AppMentionEvent:
 			if ev.User != bot.User {
-				bot.API.PostMessage(ev.Channel, slack.MsgOptionText("*#leetcode HOF!*\n* @grepcats", false))
+				bot.API.PostMessage(ev.Channel, slack.MsgOptionText(fmt.Sprintf("*#leetcode HOF!* %s", hofer_str), false))
 			}
 			log.Printf("[%s] <%s> %s", bot.GetChannelName(ev.Channel), bot.GetUserName(ev.User), ev.Text)
 		}
