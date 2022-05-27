@@ -33,8 +33,7 @@ func main() {
 		switch ev := iev.Data.(type) {
 		case *slackevents.AppMentionEvent:
 			if ev.User != bot.User {
-				bot.API.PostMessage(ev.Channel, slack.MsgOptionText(`*#leetcode HOF!*
-				* @grepcats`, false))
+				bot.API.PostMessage(ev.Channel, slack.MsgOptionText("*#leetcode HOF!*\n* @grepcats", false))
 			}
 			log.Printf("[%s] <%s> %s", bot.GetChannelName(ev.Channel), bot.GetUserName(ev.User), ev.Text)
 		}
