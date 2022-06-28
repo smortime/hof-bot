@@ -16,7 +16,8 @@ const hofer_str = `
 * @chad
 * @Jingkai
 * @Russell
-* @annnn`
+* @annnn
+* @heather`
 
 func main() {
 	apiKey := os.Getenv("SLACK_XOXB")
