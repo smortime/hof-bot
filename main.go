@@ -18,6 +18,7 @@ const hofer_str = `
 * @Russell
 * @annnn
 * @Smort
+* @Azure
 * @heather`
 
 func main() {
