@@ -20,6 +20,7 @@ const hofer_str = `
 * @Smort
 * @Azure
 * @heather
+* @daniel
 * @michael`
 
 func main() {
