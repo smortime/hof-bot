@@ -24,6 +24,7 @@ const hofer_str = `
 * @Richard Schonberg 
 * @michael
 * @Christian
+* @Twan
 * @AJ Repp`
 
 func main() {
