@@ -28,6 +28,9 @@ const hofer_str = `
 * @AJ Repp
 * @mparaz`
 
+const hoser_str = `
+* @Bryan Lozano`
+
 func main() {
 	apiKey := os.Getenv("SLACK_XOXB")
 	if apiKey == "" {
@@ -51,6 +54,7 @@ func main() {
 		case *slackevents.AppMentionEvent:
 			if ev.User != bot.User {
 				bot.API.PostMessage(ev.Channel, slack.MsgOptionText(fmt.Sprintf("*#leetcode HOF!* %s", hofer_str), false))
+				bot.API.PostMessage(ev.Channel, slack.MsgOptionText(fmt.Sprintf("*#leetcode HOS!* %s", hoser_str), false))
 			}
 			log.Printf("[%s] <%s> %s", bot.GetChannelName(ev.Channel), bot.GetUserName(ev.User), ev.Text)
 		}
